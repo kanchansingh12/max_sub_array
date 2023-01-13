@@ -1,0 +1,32 @@
+
+#include<iostream>
+#include<climits>
+#include<vector>
+using namespace std;
+int maxsub(int n,vector<int> v){
+    int maxs=INT_MIN;
+    for(int size=1;size<=n;size++){
+        for(int start = 0; start<n ; start++){
+            if(start+size>n){
+                break;
+            }
+            int sum=0;
+            for(int i = start;i<start+size;i++){
+                sum=sum+v[i];
+            }
+            maxs= max(maxs,sum);
+        }
+    }
+    cout<<maxs;
+    return 0;
+}
+int main(){
+    int j,ele;
+    cin>>j;
+    vector<int> v;
+    for(int i=0;i<j;i++){
+        cin>>ele;
+        v.push_back(ele);
+    }
+    maxsub(j,v);
+}
